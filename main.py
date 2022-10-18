@@ -25,7 +25,8 @@ data = data[data['Image Tag'].str.contains("control") == False]
 imagetagParser(data)
 
 #Refine animal number for vlookup with number_parser function
-data['Animal Number'] = data['Animal Number Raw'].apply(lambda x: int(number_parser(x)))
+vendor = str(input('Which vendor are you using?: '))
+data['Animal Number'] = data['Animal Number Raw'].apply(lambda x: int(number_parser(x,vendor)))
 
 #Ask user for columns of interest #
 print(data.columns)

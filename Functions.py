@@ -1,9 +1,14 @@
-def number_parser(num):
+def number_parser(num,vendor):
     if len(num) < 3:
         print(f'This number {num} should not have been passed to parser.. review code!')
-    num = num[-3:]
-    num = num.lstrip("0")
-    return num
+    if vendor == 'Histowiz':
+        num = num[-3:]
+        num = num.lstrip("0")
+        return num
+    elif vendor == 'Crownbio':
+        return num
+    else:
+        print('Unrecognized Vendor!')
 
 def imagetagParser(data):
     print(data['Image Tag'][0])
